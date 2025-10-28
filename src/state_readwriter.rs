@@ -12,6 +12,7 @@ impl<T> StateReadWriter<T>
 where
     T: Clone,
 {
+    #[inline]
     fn lock<'a>(&'a self) -> MutexGuard<'a, T> {
         match self.inner.0.lock() {
             Ok(g) => g,

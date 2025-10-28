@@ -12,6 +12,7 @@ impl<T> StateWriter<T>
 where
     T: Clone,
 {
+    #[inline]
     fn lock<'a>(&'a self) -> RwLockWriteGuard<'a, T> {
         match self.inner.0.write() {
             Ok(g) => g,

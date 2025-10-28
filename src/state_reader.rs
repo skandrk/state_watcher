@@ -12,6 +12,7 @@ impl<T> StateReader<T>
 where
     T: Clone,
 {
+    #[inline]
     fn lock<'a>(&'a self) -> RwLockReadGuard<'a, T> {
         match self.inner.0.read() {
             Ok(g) => g,

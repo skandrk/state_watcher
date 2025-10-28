@@ -1,12 +1,19 @@
 pub mod state_reader;
-pub mod state_readwriter;
 pub mod state_writer;
+
+#[cfg(feature = "mutex")]
+pub mod state_readwriter;
 
 pub use state_reader::StateReader;
 pub use state_writer::StateWriter;
-use std::sync::{Arc, Mutex, RwLock, atomic::AtomicBool};
 
-use crate::state_readwriter::StateReadWriter;
+#[cfg(feature = "mutex")]
+pub use state_readwriter::StateReadWriter;
+
+use std::sync::{Arc, RwLock, atomic::AtomicBool};
+
+#[cfg(feature = "mutex")]
+use std::sync::Mutex;
 
 pub fn state_channel<T>() -> (StateWriter<T>, StateReader<T>)
 where
@@ -21,6 +28,7 @@ where
     )
 }
 
+#[cfg(feature = "mutex")]
 pub fn state_readerwriter<T>() -> StateReadWriter<T>
 where
     T: Default + Clone,
