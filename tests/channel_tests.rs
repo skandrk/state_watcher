@@ -1,4 +1,4 @@
-use state_watcher::state_channel;
+use statewatcher::state_channel;
 
 #[test]
 fn single_thread() {

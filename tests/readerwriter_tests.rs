@@ -1,5 +1,5 @@
 #[cfg(feature = "mutex")]
-use state_watcher::state_readerwriter;
+use statewatcher::state_readerwriter;
 
 #[test]
 #[cfg(feature = "mutex")]

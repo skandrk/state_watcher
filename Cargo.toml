@@ -1,7 +1,15 @@
 [package]
-name = "state_watcher"
+name = "statewatcher"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+authors = ["Skandrk <skandrk@outlook.com>"]
+license = "MIT OR Apache-2.0"
+description = "A simple, shared state channel where readers are notified of updates, inspired by tokio::watch but for std"
+documentation = "https://docs.rs/statewatcher"
+homepage = "https://github.com/skandrk/state_watcher"
+repository = "https://github.com/skandrk/state_watcher"
+keywords = ["events", "reactive", "state", "watch", "observer"]
+categories = ["data-structures", "concurrency"]
 
 [dependencies]
 
